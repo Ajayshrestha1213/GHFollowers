@@ -18,6 +18,7 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        view.addSubviews(logoImageView, usernameTextField, callToActionButton)
         configureLogoImageView()
         configureUserNameTextField()
         configureCallToActionButton()
@@ -40,15 +41,12 @@ class SearchVC: UIViewController {
             presentGFAlertOnMainThread(title: "Empty UserName", message: "Please enter a usernmae. We need to know who to look for 🙂", buttonTitle: "OK")
             return
         }
-        
-        let followerListVC      = FollowersListVC()
-        followerListVC.username = usernameTextField.text
-        followerListVC.title    = usernameTextField.text
+        usernameTextField.resignFirstResponder()
+        let followerListVC      = FollowersListVC(username: usernameTextField.text!)
         navigationController?.pushViewController(followerListVC, animated: true)
     }
     
     func configureLogoImageView(){
-        view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.image = UIImage(named: "gh-logo")!
         
@@ -61,7 +59,6 @@ class SearchVC: UIViewController {
     }
     
     func configureUserNameTextField(){
-        view.addSubview(usernameTextField)
         usernameTextField.delegate = self
         
         NSLayoutConstraint.activate([
@@ -73,7 +70,6 @@ class SearchVC: UIViewController {
     }
     
     func configureCallToActionButton(){
-        view.addSubview(callToActionButton)
         callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([

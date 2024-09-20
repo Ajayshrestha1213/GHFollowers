@@ -37,5 +37,6 @@ class GFTextField: UITextField {
         placeholder               = "Enter a username"
         textAlignment             = .center
         returnKeyType             = .go
+        clearButtonMode           = .whileEditing
     }
 }
