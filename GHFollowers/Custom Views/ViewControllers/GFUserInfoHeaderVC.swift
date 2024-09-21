@@ -9,12 +9,12 @@ import UIKit
 
 class GFUserInfoHeaderVC: UIViewController {
     
-    let avatarImageView = GFAvatarImageView(frame: .zero)
-    let userNameLabel = GFTitleLabel(textAlignment: .left, fontSize: 34)
-    let nameLabel = GFSecondaryTitleLabel(fontSize: 18)
-    let locationImageView = UIImageView()
-    let locationLabel = GFSecondaryTitleLabel(fontSize: 18)
-    let bioLabel = GFBodyLabel(textAlignment: .left)
+    let avatarImageView     = GFAvatarImageView(frame: .zero)
+    let userNameLabel       = GFTitleLabel(textAlignment: .left, fontSize: 34)
+    let nameLabel           = GFSecondaryTitleLabel(fontSize: 18)
+    let locationImageView   = UIImageView()
+    let locationLabel       = GFSecondaryTitleLabel(fontSize: 18)
+    let bioLabel            = GFBodyLabel(textAlignment: .left)
 
     var user: User!
     
@@ -36,13 +36,13 @@ class GFUserInfoHeaderVC: UIViewController {
     
     func configureUIElements() {
         downloadAvatarImage()
-        userNameLabel.text = user.login
-        nameLabel.text = user.name ?? ""
-        locationLabel.text = user.location ?? "No location"
-        bioLabel.text = user.bio ?? "No Bio Available"
-        bioLabel.numberOfLines = 3
+        userNameLabel.text          = user.login
+        nameLabel.text              = user.name ?? ""
+        locationLabel.text          = user.location ?? "No location"
+        bioLabel.text               = user.bio ?? "No Bio Available"
+        bioLabel.numberOfLines      = 3
         
-        locationImageView.image = SFsymbols.location
+        locationImageView.image     = SFsymbols.location
         locationImageView.tintColor = .secondaryLabel
         
     }
